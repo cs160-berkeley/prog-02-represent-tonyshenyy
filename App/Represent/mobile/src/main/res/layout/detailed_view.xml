@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.tony.represent.MainActivity"
-    tools:showIn="@layout/activity_main"
-    android:orientation="vertical">
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,46 +21,50 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/welcome"
-            android:textSize="30dp"
+            android:text="Barbara Lee"
+            android:layout_gravity="center"
+            android:id="@+id/rep_name"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/barbara_lee"
+            android:layout_gravity="center"
+            android:id="@+id/rep_pic"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Democratic"
+            android:id="@+id/rep_party"
             android:layout_gravity="center"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/title"
-            android:id="@+id/title"
+            android:text="End Date"
+            android:id="@+id/end_date"
             android:layout_gravity="center"/>
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:maxLength="9"
-            android:ems="10"
-            android:id="@+id/editText"
-            android:layout_gravity="center"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/go"
-            android:id="@+id/go"
-            android:layout_gravity="center" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="OR"
-            android:textSize="20dp"
-            android:layout_gravity="center" />
+            android:text="Name of Committee"
+            android:id="@+id/com_name"
+            android:layout_gravity="center"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recent Bills"
+            android:id="@+id/bills"
+            android:layout_gravity="center"/>
+        
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/find_location"
-            android:layout_gravity="center" />
+            android:text="START OVER"
+            android:id="@+id/start_over"
+            android:layout_gravity="center"/>
     </LinearLayout>
-
 </LinearLayout>

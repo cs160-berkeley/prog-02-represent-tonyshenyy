@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.tony.represent.MainActivity"
-    tools:showIn="@layout/activity_main"
     android:orientation="vertical">
 
     <LinearLayout
@@ -18,7 +13,7 @@
             android:id="@+id/imageView"
             android:src="@drawable/banner" />
     </LinearLayout>
-
+    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,46 +22,61 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/welcome"
-            android:textSize="30dp"
+            android:text="Barbara Lee"
+            android:layout_gravity="center"
+            android:id="@+id/rep_name"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/barbara_lee"
+            android:layout_gravity="center"
+            android:id="@+id/rep_pic"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Democratic"
+            android:id="@+id/rep_party"
             android:layout_gravity="center"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/title"
-            android:id="@+id/title"
+            android:text="Email"
+            android:id="@+id/rep_email"
             android:layout_gravity="center"/>
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:maxLength="9"
-            android:ems="10"
-            android:id="@+id/editText"
-            android:layout_gravity="center"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/go"
-            android:id="@+id/go"
-            android:layout_gravity="center" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="OR"
-            android:textSize="20dp"
-            android:layout_gravity="center" />
+            android:text="Website"
+            android:id="@+id/rep_web"
+            android:layout_gravity="center"/>
 
-        <Button
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/find_location"
-            android:layout_gravity="center" />
+            android:text="Last Tweet"
+            android:id="@+id/rep_tweet"
+            android:layout_gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MORE INFO"
+                android:id="@+id/more_info"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="START OVER"
+                android:id="@+id/start_over"/>
+        </LinearLayout>
     </LinearLayout>
-
 </LinearLayout>

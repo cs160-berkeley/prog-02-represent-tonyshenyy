@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Represent!</string>
     <string name="action_settings">Settings</string>
+    <string name='title'>Please enter your ZIP code</string>
+    <string name='go'>Go</string>
+    <string name="find_location">Find your location</string>
+    <string name="welcome">Welcome to Represent!</string>
 </resources>
