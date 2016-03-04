@@ -12,13 +12,11 @@ import android.view.MenuItem;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-
-    private Button go = (Button) findViewById(R.id.go);
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button go = (Button) findViewById(R.id.go);
 
         go.setOnClickListener(new View.OnClickListener() {
             @Override
