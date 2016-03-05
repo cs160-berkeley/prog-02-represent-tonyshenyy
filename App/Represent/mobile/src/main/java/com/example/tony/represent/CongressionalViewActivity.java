@@ -31,25 +31,10 @@ public class CongressionalViewActivity extends AppCompatActivity {
 
     private List<Fragment> getFragments() {
         List<Fragment> fList = new ArrayList<Fragment>();
-        fList.add(MyFragment.newInstance("Fragment 1"));
-        fList.add(MyFragment.newInstance("Fragment 2"));
-        fList.add(MyFragment.newInstance("Fragment 3"));
+        fList.add(MyFragment.newInstance("Barbara Lee", "Democratic"));
+        fList.add(MyFragment.newInstance("Mike Coffman", "Republican"));
+        fList.add(MyFragment.newInstance("Robert Aderholt", "Republican"));
         return fList;
     }
 }
 
-public class MyPageAdapter extends FragmentPagerAdapter {
-    private List<Fragment> fragments;
-    public MyPageAdapter(FragmentManager fm, List<Fragment> fragments) {
-        super(fm);
-        this.fragments = fragments;
-    }
-    @Override
-    public Fragment getItem(int position) {
-        return this.fragments.get(position);
-    }
-    @Override
-    public int getCount() {
-        return this.fragments.size();
-    }
-}

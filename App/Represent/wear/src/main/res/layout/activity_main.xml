@@ -8,6 +8,12 @@
     tools:context="com.example.tony.represent.MainActivity"
     tools:deviceIds="wear">
 
+    <android.support.wearable.view.GridViewPager
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <TextView
         android:id="@+id/clock"
         android:layout_width="wrap_content"
@@ -15,22 +21,5 @@
         android:layout_gravity="bottom|start"
         android:textColor="@android:color/white"
         app:layout_box="all" />
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Barbara Lee"
-            android:layout_gravity="center"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Democratic"
-            android:layout_gravity="center"/>
-    </LinearLayout>
 
 </android.support.wearable.view.BoxInsetLayout>

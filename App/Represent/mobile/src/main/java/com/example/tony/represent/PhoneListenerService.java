@@ -1,6 +1,7 @@
 package com.example.tony.represent;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -20,23 +21,16 @@ private static final String TOAST = "/send_toast";
     @Override
     public void onMessageReceived(MessageEvent messageEvent) {
         Log.d("T", "in PhoneListenerService, got: " + messageEvent.getPath());
-        if( messageEvent.getPath().equalsIgnoreCase(TOAST) ) {
+        if( messageEvent.getPath().equalsIgnoreCase("/rep_name") ) {
 
             // Value contains the String we sent over in WatchToPhoneService, "good job"
             String value = new String(messageEvent.getData(), StandardCharsets.UTF_8);
 
-            // Make a toast with the String
-            Context context = getApplicationContext();
-            int duration = Toast.LENGTH_SHORT;
-
-            Toast toast = Toast.makeText(context, value, duration);
-            toast.show();
-
-            // so you may notice this crashes the phone because it's
-            //''sending message to a Handler on a dead thread''... that's okay. but don't do this.
-            // replace sending a toast with, like, starting a new activity or something.
-            // who said skeleton code is untouchable? #breakCSconceptions
-
+            Intent intent = new Intent(this, MyFragment.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.putExtra("REP_NAME", value);
+            Log.d("T", "about to start mobile Detailed View with REP_NAME: " + value);
+            startActivity(intent);
         } else {
             super.onMessageReceived( messageEvent );
         }

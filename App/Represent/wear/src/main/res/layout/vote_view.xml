@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center_vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="2012 Presidential Vote"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center_horizontal"
+        android:textSize="15dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="California"
-        android:layout_gravity="center"/>
+        android:id="@+id/state"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Alameda"
-        android:layout_gravity="center"/>
+        android:id="@+id/county"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -39,13 +44,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="78.9%"/>
+                android:id="@+id/obama_percent"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="18dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -55,7 +61,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="18.2%"/>
+                android:id="@+id/romney_percent"/>
             "/>
         </LinearLayout>
     </LinearLayout>

@@ -17,12 +17,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button go = (Button) findViewById(R.id.go);
+        Button findLocation = (Button) findViewById(R.id.find_location);
 
         go.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent sendIntent = new Intent(getBaseContext(), PhoneToWatchService.class);
-                sendIntent.putExtra("CAT_NAME", "Fred");
+                Bundle extras = new Bundle();
+                extras.putString("REP_NAME", "Barbara Lee");
+                extras.putString("REP_PARTY", "Democratic");
+                sendIntent.putExtras(extras);
+                startService(sendIntent);
+
+                Intent myIntent = new Intent(v.getContext(), CongressionalViewActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        findLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sendIntent = new Intent(getBaseContext(), PhoneToWatchService.class);
+                Bundle extras = new Bundle();
+                extras.putString("REP_NAME", "Barbara Lee");
+                extras.putString("REP_PARTY", "Democratic");
+                sendIntent.putExtras(extras);
                 startService(sendIntent);
 
                 Intent myIntent = new Intent(v.getContext(), CongressionalViewActivity.class);
