@@ -1,6 +1,9 @@
 package com.example.tony.represent;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -27,6 +30,18 @@ public class CongressionalViewActivity extends AppCompatActivity {
         ViewPager pager =
                 (ViewPager)findViewById(R.id.viewpager);
         pager.setAdapter(pageAdapter);
+    }
+
+    protected void onStart() {
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+            // fetch data
+        } else {
+            // display error
+        }
+        ...
     }
 
     private List<Fragment> getFragments() {
