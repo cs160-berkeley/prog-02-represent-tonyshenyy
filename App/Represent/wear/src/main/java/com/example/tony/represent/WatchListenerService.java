@@ -42,9 +42,9 @@ public class WatchListenerService extends WearableListenerService {
 //            startActivity(intent);
         if (messageEvent.getPath().equalsIgnoreCase(rep)) {
             String value = new String(messageEvent.getData(), StandardCharsets.UTF_8);
-            Intent intent = new Intent(this, MainActivity.class );
+            Intent intent = new Intent(this, RepViewActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.putExtra("REP_INFO", value);
+            intent.putExtra("REP_LIST", value);
             Log.d("T", "about to start watch MainActivity with REP_NAME: " + value.split(",")[0]);
             startActivity(intent);
         } else {

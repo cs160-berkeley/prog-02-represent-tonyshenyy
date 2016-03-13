@@ -15,14 +15,18 @@ import org.w3c.dom.Text;
  * Created by yshen on 3/4/2016.
  */
 public class WatchFragment extends Fragment {
-    private TextView repName;
-    private TextView repParty;
+    String repName;
+    String repParty;
+    String repInfo;
 
-    public static final WatchFragment newInstance(Bundle bdl) {
+    public WatchFragment() {}
+
+    public static final WatchFragment newInstance(String name, String party, String info) {
         WatchFragment f = new WatchFragment();
-//        Bundle bdl = new Bundle();
-//        bdl.putString("REP_NAME", repName);
-//        bdl.putString("REP_PARTY", repParty);
+        Bundle bdl = new Bundle();
+        bdl.putString("REP_NAME", name);
+        bdl.putString("REP_PARTY", party);
+        bdl.putString("REP_INFO", info);
         f.setArguments(bdl);
         return f;
     }
@@ -30,15 +34,11 @@ public class WatchFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final String repName = getArguments().getString("REP_NAME");
-        final String repParty = getArguments().getString("REP_PARTY");
-        final String county = getArguments().getString("COUNTY");
-        final String state = getArguments().getString("STATE");
-        final String obPer = getArguments().getString("OBAMA_PERCENT");
-        final String roPer = getArguments().getString("ROMNEY_PERCENT");
-
-        View v;
-        if (repName != "" && repParty != "") {
+        View v = null;
+        String repName = getArguments().getString("REP_NAME");
+        String repParty = getArguments().getString("REP_PARTY");
+        final String repInfo = getArguments().getString("REP_INFO");
+        if (repName != null && repParty != null && repInfo != null) {
             v = inflater.inflate(R.layout.rep_view, container, false);
 //        TextView messageTextView = (TextView)v.findViewById(R.id.textView);
 //        messageTextView.setText(message);
@@ -52,24 +52,23 @@ public class WatchFragment extends Fragment {
                 public void onClick(View v) {
                     Intent sendIntent = new Intent(getActivity(), WatchToPhoneService.class);
                     Bundle extras = new Bundle();
-                    extras.putString("REP_NAME", repName);
-//                extras.putString("REP_PARTY", repParty);
+                    extras.putString("REP_INFO", repInfo);
                     sendIntent.putExtras(extras);
                     getActivity().startService(sendIntent);
                 }
             });
-        } else {
-            v = inflater.inflate(R.layout.vote_view, container, false);
-            TextView cou = (TextView) v.findViewById(R.id.county);
-            TextView sta = (TextView) v.findViewById(R.id.state);
-            TextView obama_percent = (TextView) v.findViewById(R.id.obama_percent);
-            TextView romney_percent = (TextView) v.findViewById(R.id.romney_percent);
-            cou.setText(county);
-            sta.setText(state);
-            obama_percent.setText(obPer);
-            romney_percent.setText(roPer);
+//        } else {
+//            v = inflater.inflate(R.layout.vote_view, container, false);
+//            TextView cou = (TextView) v.findViewById(R.id.county);
+//            TextView sta = (TextView) v.findViewById(R.id.state);
+//            TextView obama_percent = (TextView) v.findViewById(R.id.obama_percent);
+//            TextView romney_percent = (TextView) v.findViewById(R.id.romney_percent);
+//            cou.setText(county);
+//            sta.setText(state);
+//            obama_percent.setText(obPer);
+//            romney_percent.setText(roPer);
+//        }
         }
-
-        return v;
-    }
+            return v;
+        }
 }

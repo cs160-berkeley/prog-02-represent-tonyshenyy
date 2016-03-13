@@ -17,6 +17,7 @@ import com.google.android.gms.wearable.Wearable;
 public class PhoneToWatchService extends Service {
 
     private GoogleApiClient mApiClient;
+    String repList = null;
 
     @Override
     public void onCreate() {
@@ -47,8 +48,11 @@ public class PhoneToWatchService extends Service {
         // Which cat do we want to feed? Grab this info from INTENT
         // which was passed over when we called startService
         Bundle extras = intent.getExtras();
-        final String repName = extras.getString("REP_NAME");
-        final String repParty = extras.getString("REP_PARTY");
+        if (intent.getStringExtra("VOTE_INFO") != null) {
+            repList = extras.getString("VOTE_INFO");
+        } else if (intent.getStringExtra("REP_LIST") != null) {
+            repList = extras.getString("REP_LIST");
+        }
 
         // Send the message with the cat name
         new Thread(new Runnable() {
@@ -57,7 +61,7 @@ public class PhoneToWatchService extends Service {
                 //first, connect to the apiclient
                 mApiClient.connect();
                 //now that you're connected, send a massage with the cat name
-                sendMessage("/" + "rep", repName + "," + repParty);
+                sendMessage("/" + "rep", repList);
             }
         }).start();
 

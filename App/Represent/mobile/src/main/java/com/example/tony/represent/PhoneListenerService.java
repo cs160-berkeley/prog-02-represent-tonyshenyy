@@ -16,7 +16,7 @@ import java.nio.charset.StandardCharsets;
 public class PhoneListenerService extends WearableListenerService {
 
 //   WearableListenerServices don't need an iBinder or an onStartCommand: they just need an onMessageReceieved.
-private static final String TOAST = "/send_toast";
+//private static final String TOAST = "/send_toast";
 
     @Override
     public void onMessageReceived(MessageEvent messageEvent) {
@@ -26,9 +26,9 @@ private static final String TOAST = "/send_toast";
             // Value contains the String we sent over in WatchToPhoneService, "good job"
             String value = new String(messageEvent.getData(), StandardCharsets.UTF_8);
 
-            Intent intent = new Intent(this, MyFragment.class);
+            Intent intent = new Intent(this, DetailedViewActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.putExtra("REP_NAME", value);
+            intent.putExtra("REP_INFO", value);
             Log.d("T", "about to start mobile Detailed View with REP_NAME: " + value);
             startActivity(intent);
         } else {

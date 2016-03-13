@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         setContentView(R.layout.activity_main);
         Button go = (Button) findViewById(R.id.go);
         Button findLocation = (Button) findViewById(R.id.find_location);
+        final EditText zipcodeInput = (EditText) findViewById(R.id.zipcode);
 
         // Create an instance of GoogleAPIClient.
         if (mGoogleApiClient == null) {
@@ -49,14 +51,18 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         go.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent sendIntent = new Intent(getBaseContext(), PhoneToWatchService.class);
-                Bundle extras = new Bundle();
-                extras.putString("REP_NAME", "Barbara Lee");
-                extras.putString("REP_PARTY", "Democratic");
-                sendIntent.putExtras(extras);
-                startService(sendIntent);
+//                Intent sendIntent = new Intent(getBaseContext(), PhoneToWatchService.class);
+//                Bundle extras = new Bundle();
+//                extras.putString("REP_NAME", "Barbara Lee");
+//                extras.putString("REP_PARTY", "Democratic");
+//                sendIntent.putExtras(extras);
+//                startService(sendIntent);
 
                 Intent myIntent = new Intent(v.getContext(), CongressionalViewActivity.class);
+                Bundle extras = new Bundle();
+                String zipcode = zipcodeInput.getText().toString();
+                extras.putString("ZIPCODE", zipcode);
+                myIntent.putExtras(extras);
                 startActivity(myIntent);
             }
         });
@@ -76,23 +82,20 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 }
                 Location mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
 
-                TextView mLatitudeText = (TextView) findViewById(R.id.test1);
-                TextView mLongitudeText = (TextView) findViewById(R.id.test2);
+                String latitude = "";
+                String longitude = "";
 
                 if (mLastLocation != null) {
-                    String latitude = String.valueOf(mLastLocation.getLatitude());
-                    String longitude = String.valueOf(mLastLocation.getLongitude());
+                    latitude = String.valueOf(mLastLocation.getLatitude());
+                    longitude = String.valueOf(mLastLocation.getLongitude());
                 }
 
-//                Intent sendIntent = new Intent(getBaseContext(), PhoneToWatchService.class);
-//                Bundle extras = new Bundle();
-//                extras.putString("REP_NAME", "Barbara Lee");
-//                extras.putString("REP_PARTY", "Democratic");
-//                sendIntent.putExtras(extras);
-//                startService(sendIntent);
-//
-//                Intent myIntent = new Intent(v.getContext(), CongressionalViewActivity.class);
-//                startActivity(myIntent);
+                Intent myIntent = new Intent(v.getContext(), CongressionalViewActivity.class);
+                Bundle extras = new Bundle();
+                extras.putString("LATITUDE", latitude);
+                extras.putString("LONGITUDE", longitude);
+                myIntent.putExtras(extras);
+                startActivity(myIntent);
             }
         });
     }

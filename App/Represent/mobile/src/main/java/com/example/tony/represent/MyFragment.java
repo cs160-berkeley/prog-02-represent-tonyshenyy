@@ -53,16 +53,6 @@ public class MyFragment extends Fragment {
             }
         });
 
-        moreInfo = (Button) v.findViewById(R.id.more_info);
-        moreInfo.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), DetailedViewActivity.class);
-                Bundle temp = new Bundle();
-                temp.putString("REP_NAME", repName);
-                myIntent.putExtras(temp);
-                startActivityForResult(myIntent, 0);
-            }
-        });
         return v;
     }
 }

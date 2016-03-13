@@ -20,6 +20,7 @@
         </activity>
         
         <activity android:name=".VoteViewActivity"></activity>
+        <activity android:name=".RepViewActivity"></activity>
         <uses-library android:name="com.google.android.wearable" android:required="false" />
 
         <service android:name=".WatchToPhoneService" />

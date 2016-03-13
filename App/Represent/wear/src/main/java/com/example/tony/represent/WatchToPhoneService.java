@@ -67,8 +67,7 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
         // Which cat do we want to feed? Grab this info from INTENT
         // which was passed over when we called startService
         Bundle extras = intent.getExtras();
-        final String repName = extras.getString("REP_NAME");
-//        final String repParty = extras.getString("REP_PARTY");
+        final String repName = extras.getString("REP_INFO");
 
         // Send the message with the cat name
         new Thread(new Runnable() {
